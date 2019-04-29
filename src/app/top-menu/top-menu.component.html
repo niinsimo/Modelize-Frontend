@@ -1,0 +1,16 @@
+<mat-menu #appMenu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>face</mat-icon>
+        <span>Meist</span>
+    </button>
+    
+    <button mat-menu-item>
+      <mat-icon>3d_rotation</mat-icon>
+      <span>App</span>
+    </button>
+  </mat-menu>
+  
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  
