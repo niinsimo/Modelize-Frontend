@@ -29,7 +29,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "../node_modules/tween.js/src/Tween.js",
+              "../node_modules/three/build/three.js",
+              "../node_modules/stats.js/build/stats.min.js",
+              "../vendor/VRMLLoader.js",
+              "../vendor/OrbitControls.js"],
             "es5BrowserSupport": true
           },
           "configurations": {
