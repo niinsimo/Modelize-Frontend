@@ -9,7 +9,7 @@ import * as THREE from 'three';
 
 export class ModelComponent {
 
-  @ViewChild('rendererContainer') rendererContainer: ElementRef;
+  @ViewChild('rendererContainer', { static: true }) rendererContainer: ElementRef;
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: { target: { innerWidth: number; innerHeight: number; }; }) {
       this.renderer.setSize(event.target.innerWidth, event.target.innerHeight)
