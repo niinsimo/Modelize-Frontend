@@ -22,7 +22,8 @@
     "@types/three": "^0.103.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
-    "three": "^0.105.2",
+    "three": "^0.105.1",
+    "three-gltf-loader": "^1.102.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
