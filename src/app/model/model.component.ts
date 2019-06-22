@@ -21,7 +21,7 @@ export class ModelComponent implements OnInit, OnDestroy {
     renderer.setClearColor( 0xC5C5C3 );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize(window.innerWidth, window.innerHeight);
-    this.domElement = renderer.domElement
+    this.domElement = renderer.domElement;
     document.body.appendChild(this.domElement);
 
     scene.background = new THREE.Color('grey');
