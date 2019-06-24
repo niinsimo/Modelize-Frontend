@@ -1,7 +1,7 @@
 <div class="img-container">
   <div *ngFor="let image of imageCollection" (deferLoad)="image.show = true" class="item" >
     <ng-container *ngIf="image.show">
-      <img [src]="image.url" />
+      <img [src]="image.url" [routerLink]="['../model']"/>
       <p>Maecenas varius sit amet metus</p>
     </ng-container>
   </div>

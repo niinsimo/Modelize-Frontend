@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as THREE from 'three';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import GLTFLoader from 'three-gltf-loader';
 import OrbitControls from 'three-orbitcontrols';
 import Stats from 'stats-js';
@@ -12,40 +11,34 @@ import Stats from 'stats-js';
 })
 
 export class ModelComponent implements OnInit, OnDestroy {
-
+  
   domElement: HTMLElement;
-  private renderer: any;
-  private scene: any;
-  private camera: any;
-  private object: any;
 
   ngOnInit() {
-    this.initThree();
+    this.createScene();
   }
 
-  initThree() {
+  createScene() {
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 20000 );
     camera.position.set( 1, 1, 20 );
 
-    //const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
-    //camera.position.set( - 1.8, 0.9, 2.7 );
-        
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setClearColor( 0xC5C5C3 );
     renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.gammaOutput = true;
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.domElement = renderer.domElement;
     document.body.appendChild(this.domElement);
 
 
-    renderer.gammaOutput = true;
     const controls = new OrbitControls( camera, renderer.domElement );
     controls.target.set( 0, - 0.2, - 0.2 );
     controls.update();
 
     const stats = new Stats();
-		//document.body.appendChild( stats.dom );
+		//this.container.appendChild( stats.dom );
 
     scene.background = new THREE.Color('grey');
     scene.add(camera);
@@ -58,9 +51,21 @@ export class ModelComponent implements OnInit, OnDestroy {
     directionalLight.position.set( 0, 1, 1 ).normalize();
     scene.add( directionalLight );
 
+    //animates object
+    animate();
+    function animate() {
+
+      requestAnimationFrame( animate );
+      // required if controls.enableDamping or controls.autoRotate are set to true
+      controls.update();
+    
+      renderer.render( scene, camera );
+    
+    }
+
     const loader = new GLTFLoader();
     loader.load(
-      '../assets/iphone/iphone.gltf', // Resource location (assets folder)
+      '../assets/adam/adamHead.gltf', // Resource location (assets folder)
       function ( gltf ) {
         console.log(gltf);
 
@@ -70,17 +75,10 @@ export class ModelComponent implements OnInit, OnDestroy {
         object.position.y = 0;	// Position (y = up+, down-)
         object.position.z = 0;
 
-        var SPEED = 0.01;
-        object.rotation.x -= SPEED * 2;
-        object.rotation.y -= SPEED;
-        object.rotation.z -= SPEED * 3;
-
         scene.add( object );
-
         renderer.render( scene, camera );
-        //this.render;
       },
- 
+
       // Called while loading is progressing
       function ( xhr ) {
 
@@ -96,8 +94,8 @@ export class ModelComponent implements OnInit, OnDestroy {
         throw Error(error.message);
 
       }
+      
     );
-
   }
 
   ngOnDestroy() {
