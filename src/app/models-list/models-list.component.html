@@ -1,0 +1,8 @@
+<div class="img-container">
+  <div *ngFor="let image of imageCollection" (deferLoad)="image.show = true" class="item" >
+    <ng-container *ngIf="image.show">
+      <img [src]="image.url" />
+      <p>Maecenas varius sit amet metus</p>
+    </ng-container>
+  </div>
+</div>

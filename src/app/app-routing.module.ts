@@ -6,9 +6,11 @@ import { LoginComponent } from './login/login.component';
 import {ProfileComponent} from "./profile/profile.component";
 
 import {AuthGuard} from "./guard/auth.guard";
+import { ModelsListComponent } from './models-list/models-list.component';
 
 const routes: Routes = [
   { path: 'model', component: ModelComponent },
+  { path: 'models-list', component: ModelsListComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }

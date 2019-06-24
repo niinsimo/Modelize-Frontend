@@ -18,6 +18,9 @@ import { AuthService } from "./service/auth.service";
 import { AuthGuard } from "./guard/auth.guard";
 
 import { ProfileComponent } from './profile/profile.component';
+import { ModelsListComponent } from './models-list/models-list.component';
+
+import { DeferLoadModule }  from '@trademe/ng-defer-load';
 
 @NgModule({
   declarations: [
@@ -26,13 +29,15 @@ import { ProfileComponent } from './profile/profile.component';
     NavComponent,
     AboutComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    ModelsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DeferLoadModule
   ],
   providers: [AuthGuard, AuthService,
     {
