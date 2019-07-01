@@ -21,6 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ModelsListComponent } from './models-list/models-list.component';
 
 import { DeferLoadModule }  from '@trademe/ng-defer-load';
+import { SplitViewerComponent } from './split-viewer/split-viewer.component';
+import { AngularSplitModule } from 'angular-split';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,15 @@ import { DeferLoadModule }  from '@trademe/ng-defer-load';
     AboutComponent,
     LoginComponent,
     ProfileComponent,
-    ModelsListComponent
+    ModelsListComponent,
+    SplitViewerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AngularSplitModule,
     DeferLoadModule
   ],
   providers: [AuthGuard, AuthService,

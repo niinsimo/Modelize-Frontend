@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as THREE from 'three';
 import GLTFLoader from 'three-gltf-loader';
 import OrbitControls from 'three-orbitcontrols';
@@ -11,7 +11,7 @@ import Stats from 'stats-js';
 })
 
 export class ModelComponent implements OnInit, OnDestroy {
-  
+  contentHeight: number;
   domElement: HTMLElement;
 
   ngOnInit() {
@@ -23,6 +23,7 @@ export class ModelComponent implements OnInit, OnDestroy {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 20000 );
     camera.position.set( 1, 1, 20 );
+    camera.lookAt( scene.position );
 
     const renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setClearColor( 0xC5C5C3 );
@@ -63,6 +64,20 @@ export class ModelComponent implements OnInit, OnDestroy {
     
     }
 
+    window.addEventListener( 'resize', onWindowResize, false );
+
+    function onWindowResize( ) {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        // adjust the FOV
+        camera.fov = ( 360 / Math.PI ) * Math.atan( ( window.innerHeight / window.innerHeight ) );
+        camera.updateProjectionMatrix();
+        camera.lookAt( scene.position );
+        renderer.setSize( window.innerWidth , window.innerHeight );
+        renderer.render( scene, camera );
+        
+    }
+
     const loader = new GLTFLoader();
     loader.load(
       '../assets/adam/adamHead.gltf', // Resource location (assets folder)
@@ -70,7 +85,7 @@ export class ModelComponent implements OnInit, OnDestroy {
         console.log(gltf);
 
         const object = gltf.scene;
-        object.scale.set( 4, 4, 4 );
+        object.scale.set( 1, 1, 1 );
         object.position.x = 0;	// Position (x = right+ left-)
         object.position.y = 0;	// Position (y = up+, down-)
         object.position.z = 0;

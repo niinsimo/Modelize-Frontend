@@ -22,6 +22,7 @@
     "@auth0/angular-jwt": "^2.1.0",
     "@trademe/ng-defer-load": "^3.0.1",
     "@types/three": "^0.103.2",
+    "angular-split": "^3.0.2",
     "core-js": "^2.5.4",
     "moment": "^2.24.0",
     "rxjs": "~6.5.2",
