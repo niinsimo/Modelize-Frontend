@@ -1,8 +1,25 @@
-<div class="img-container">
-  <div *ngFor="let image of imageCollection" (deferLoad)="image.show = true" class="item" >
-    <ng-container *ngIf="image.show">
-      <img [src]="image.url" [routerLink]="['../model']"/>
-      <p>Maecenas varius sit amet metus</p>
-    </ng-container>
+
+<div cdkDropList  class="cardList" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="flex-start"> 
+  <div *ngFor="let image of imageCollection"  (deferLoad)="image.show = true"  >
+    <mat-card class="cardListItem"  cdkDrag >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Molekul</mat-card-title>
+        <mat-card-subtitle>Keemia</mat-card-subtitle>
+      </mat-card-header>
+      <ng-container *ngIf="image.show" >
+        <img mat-card-image [src]="image.url" [routerLink]="['../model']"/>
+      </ng-container>
+
+      <mat-card-content>
+        <p>Maecenas varius sit amet metus</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>ADD TO CLASS</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
+
+

@@ -24,6 +24,13 @@ import { DeferLoadModule }  from '@trademe/ng-defer-load';
 import { SplitViewerComponent } from './split-viewer/split-viewer.component';
 import { AngularSplitModule } from 'angular-split';
 
+import { AngularResizedEventModule } from 'angular-resize-event';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatCardModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +48,13 @@ import { AngularSplitModule } from 'angular-split';
     FormsModule,
     HttpClientModule,
     AngularSplitModule,
-    DeferLoadModule
+    DeferLoadModule,
+    AngularResizedEventModule,
+    BrowserAnimationsModule,
+    DragDropModule,
+    MatCardModule ,
+    MatButtonModule,
+    FlexLayoutModule 
   ],
   providers: [AuthGuard, AuthService,
     {

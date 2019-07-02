@@ -21,7 +21,8 @@ export class ModelComponent implements OnInit, OnDestroy {
   createScene() {
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 20000 );
+    var containerWIdth = document.getElementById('rendererGrid').offsetWidth;
+    const camera = new THREE.PerspectiveCamera( 25, containerWIdth / window.innerHeight, 1, 20000 );
     camera.position.set( 1, 1, 20 );
     camera.lookAt( scene.position );
 
@@ -29,7 +30,7 @@ export class ModelComponent implements OnInit, OnDestroy {
     renderer.setClearColor( 0xC5C5C3 );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.gammaOutput = true;
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(containerWIdth, window.innerHeight);
     this.domElement = renderer.domElement;
     document.body.appendChild(this.domElement);
 
@@ -66,14 +67,14 @@ export class ModelComponent implements OnInit, OnDestroy {
 
     window.addEventListener( 'resize', onWindowResize, false );
 
-    function onWindowResize( ) {
-
-        camera.aspect = window.innerWidth / window.innerHeight;
+    function onWindowResize( e ) {
+        containerWIdth = document.getElementById('rendererGrid').offsetWidth;
+        camera.aspect = containerWIdth / window.innerHeight;
         // adjust the FOV
         camera.fov = ( 360 / Math.PI ) * Math.atan( ( window.innerHeight / window.innerHeight ) );
         camera.updateProjectionMatrix();
         camera.lookAt( scene.position );
-        renderer.setSize( window.innerWidth , window.innerHeight );
+        renderer.setSize( containerWIdth , window.innerHeight );
         renderer.render( scene, camera );
         
     }
@@ -118,4 +119,5 @@ export class ModelComponent implements OnInit, OnDestroy {
       document.body.removeChild(this.domElement);
     }
   }
+
 }
