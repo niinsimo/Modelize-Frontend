@@ -1,6 +1,5 @@
 header {
-    background: #34a8a2;
-
+    background-image: linear-gradient(to bottom right, rgb(0, 176, 207), rgba(19, 245, 207, 0.692));
     .logo {
         font-weight: bold;
     }
@@ -21,10 +20,30 @@ header {
                     font-size: .8em;
 
                     &:hover {
-                        background: #3fccc4;
+                        background: #30fff5a1;
                     }
                 }
             }
         }
     }
+}
+
+@media screen and (max-width: 655px) {
+    .toggle {
+        color: white;
+        display: inline-block !important;
+
+    }
+
+    .ul {
+        width: 100%;
+    }
+
+    .ul li {
+        display: block;
+    }
+}
+
+.toggle {
+    display: none;
 }
