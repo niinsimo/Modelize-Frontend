@@ -3,7 +3,8 @@
     <a routerLink="/" class="logo" (click)="isLoggedIn()">{{ appTitle }}</a>
     <nav>
       <ul (click)="isLoggedIn()" style="display: inline-block;">
-        <div class="nav-items">
+
+        <div [ngClass]="status? 'mini-menu' : 'hidden'">
           <li><a routerLink="/">Home</a></li>
           <li><a routerLink="/model">3D Model</a></li>
           <li><a routerLink="/models-list">Models list</a></li>
@@ -13,8 +14,11 @@
           <li *ngIf="isLoggedInBool"><a routerLink="/profile">Profile</a></li>
           <li *ngIf="isLoggedInBool"><button (click)="onLogout()">Logout</button></li>
         </div>
-        <div class="toggle">
-          <li><i class="material-icons">menu</i></li>
+        <div class="toggle" (click)="toggleNav()">
+            <div (click)="toggle = !toggle">
+                <span [hidden]="toggle"><i class="material-icons">menu</i></span>
+                <span [hidden]="!toggle"><i class="material-icons">close</i></span>
+            </div>
         </div>
       </ul>
     </nav>

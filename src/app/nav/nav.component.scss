@@ -32,18 +32,31 @@ header {
     .toggle {
         color: white;
         display: inline-block !important;
-
     }
 
-    .ul {
-        width: 100%;
-    }
+    .mini-menu {
+        display: inline-grid;
+        //text-align: center;
 
-    .ul li {
-        display: block;
+        li {
+            float: inherit;
+            padding: 2px 0px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.363);
+        }
     }
+/*
+    @media screen and (max-width: 306px) { 
+        .logo {
+            display: none;
+        }
+    }
+*/
 }
 
 .toggle {
+    display: none;
+}
+
+.hidden {
     display: none;
 }

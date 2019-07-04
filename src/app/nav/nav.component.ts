@@ -14,10 +14,17 @@ export class NavComponent {
   isLoggedIn$: Observable<boolean>;
   subscription: Subscription;
   isLoggedInBool: boolean;
+  status: boolean = false;
 
   constructor(private authService: AuthService) {
     this.isLoggedIn$ = this.authService.isTokenInExistence();
     this.isLoggedIn();
+  }
+
+
+  toggleNav() {
+    this.status = !this.status;
+    console.log(this.status);
   }
 
   isLoggedIn(): boolean {
