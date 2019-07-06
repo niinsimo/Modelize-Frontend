@@ -13,6 +13,7 @@ import Stats from 'stats-js';
 export class ModelComponent implements OnInit, OnDestroy {
   contentHeight: number;
   domElement: HTMLElement;
+  rendererContainer: HTMLElement;
 
   ngOnInit() {
     this.createScene();
@@ -31,8 +32,10 @@ export class ModelComponent implements OnInit, OnDestroy {
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.gammaOutput = true;
     renderer.setSize(containerWIdth, window.innerHeight);
+
+    this.rendererContainer = document.getElementById( 'rendererContainer' );
     this.domElement = renderer.domElement;
-    document.body.appendChild(this.domElement);
+    this.rendererContainer.appendChild(this.domElement);
 
 
     const controls = new OrbitControls( camera, renderer.domElement );
@@ -115,8 +118,8 @@ export class ModelComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (document.body.contains(this.domElement)) {
-      document.body.removeChild(this.domElement);
+    if (this.rendererContainer.contains(this.domElement)) {
+      this.rendererContainer.removeChild(this.domElement);
     }
   }
 

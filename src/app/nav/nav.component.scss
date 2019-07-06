@@ -34,6 +34,10 @@ header {
         display: inline-block !important;
     }
 
+    .nav-items {
+        display: none !important;
+    }
+
     .mini-menu {
         display: inline-grid;
         //text-align: center;
@@ -44,6 +48,7 @@ header {
             border-bottom: 1px solid rgba(255, 255, 255, 0.363);
         }
     }
+
 /*
     @media screen and (max-width: 306px) { 
         .logo {
@@ -57,6 +62,6 @@ header {
     display: none;
 }
 
-.hidden {
-    display: none;
+.nav-items {
+    display: block;
 }

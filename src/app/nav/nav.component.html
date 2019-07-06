@@ -4,7 +4,7 @@
     <nav>
       <ul (click)="isLoggedIn()" style="display: inline-block;">
 
-        <div [ngClass]="status? 'mini-menu' : 'hidden'">
+        <div [ngClass]="status? 'mini-menu' : 'nav-items'">
           <li><a routerLink="/">Home</a></li>
           <li><a routerLink="/model">3D Model</a></li>
           <li><a routerLink="/models-list">Models list</a></li>
