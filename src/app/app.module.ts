@@ -30,6 +30,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatCardModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomeComponent } from './home/home.component';
+import {MatGridListModule} from '@angular/material'
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LoginComponent,
     ProfileComponent,
     ModelsListComponent,
-    SplitViewerComponent
+    SplitViewerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DragDropModule,
     MatCardModule ,
     MatButtonModule,
-    FlexLayoutModule 
+    FlexLayoutModule,
+    MatGridListModule 
   ],
   providers: [AuthGuard, AuthService,
     {

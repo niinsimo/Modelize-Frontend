@@ -8,8 +8,10 @@ import {ProfileComponent} from "./profile/profile.component";
 import {AuthGuard} from "./guard/auth.guard";
 import { ModelsListComponent } from './models-list/models-list.component';
 import { SplitViewerComponent } from './split-viewer/split-viewer.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'model', component: ModelComponent },
   { path: 'models-list', component: ModelsListComponent },
   { path: 'about', component: AboutComponent },

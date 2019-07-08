@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^8.0.3",
     "@angular/router": "^8.0.3",
     "@auth0/angular-jwt": "^2.1.1",
+    "@material-git/grid-list": "^2.0.0-git.20160919",
+    "@material/grid-list": "^3.0.0",
     "@trademe/ng-defer-load": "^3.0.1",
     "@types/three": "^0.103.2",
     "angular-animations": "0.0.10",
