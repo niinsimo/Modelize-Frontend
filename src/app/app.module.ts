@@ -58,7 +58,7 @@ import {MatGridListModule} from '@angular/material'
     MatCardModule ,
     MatButtonModule,
     FlexLayoutModule,
-    MatGridListModule 
+    MatGridListModule,
   ],
   providers: [AuthGuard, AuthService,
     {

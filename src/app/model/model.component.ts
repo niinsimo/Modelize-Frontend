@@ -14,6 +14,7 @@ export class ModelComponent implements OnInit, OnDestroy {
   contentHeight: number;
   domElement: HTMLElement;
   rendererContainer: HTMLElement;
+  onWindowResize: any;
 
   ngOnInit() {
     this.createScene();
@@ -68,9 +69,10 @@ export class ModelComponent implements OnInit, OnDestroy {
     
     }
 
-    window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( 'resize', this.onWindowResize, false );
 
-    function onWindowResize( e ) {
+    this.onWindowResize = function h() {
+        console.log("nüüd");
         containerWIdth = document.getElementById('rendererGrid').offsetWidth;
         camera.aspect = containerWIdth / window.innerHeight;
         // adjust the FOV
