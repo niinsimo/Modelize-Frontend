@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import GLTFLoader from 'three-gltf-loader';
 import OrbitControls from 'three-orbitcontrols';
 import Stats from 'stats-js';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-model',
@@ -10,12 +11,25 @@ import Stats from 'stats-js';
   styleUrls: ['./model.component.scss']
 })
 
-export class ModelComponent implements OnInit, OnDestroy {
+export class ModelComponent {
+
   contentHeight: number;
   domElement: HTMLElement;
   rendererContainer: HTMLElement;
   onWindowResize: any;
 
+  drop(event: CdkDragDrop<string[]>) {
+    console.log("liikumine toimus");
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
+  }
+  /*
   ngOnInit() {
     this.createScene();
   }
@@ -124,5 +138,6 @@ export class ModelComponent implements OnInit, OnDestroy {
       this.rendererContainer.removeChild(this.domElement);
     }
   }
+  */
 
 }

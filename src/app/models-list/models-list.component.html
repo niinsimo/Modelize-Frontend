@@ -1,7 +1,8 @@
 
-<div cdkDropList  class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start"> 
+<div class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start"> 
   <div *ngFor="let image of images"> 
-    <div cdkDrag>
+    <div cdkDropList>
+      <div cdkDrag>
       <mat-card class="cardListItem">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -20,8 +21,7 @@
           <button mat-button>ADD TO CLASS</button>
         </mat-card-actions>
       </mat-card>
+     </div>
     </div>
-
   </div>
 </div>
-
