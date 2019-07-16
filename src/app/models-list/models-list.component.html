@@ -1,7 +1,7 @@
 
 <div class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start"> 
   <div *ngFor="let image of images"> 
-    <div cdkDropList>
+    <div cdkDropList id="list1" cdkDropListConnectedTo="list-2" (cdkDropListDropped)="drop(this.image)">
       <div cdkDrag>
       <mat-card class="cardListItem">
         <mat-card-header>

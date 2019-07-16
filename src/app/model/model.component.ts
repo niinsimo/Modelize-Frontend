@@ -18,17 +18,21 @@ export class ModelComponent {
   rendererContainer: HTMLElement;
   onWindowResize: any;
 
+  images = [];
+
   drop(event: CdkDragDrop<string[]>) {
-    console.log("liikumine toimus");
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    if (event.container.id === event.previousContainer.id) {
+      // move inside same list
+      moveItemInArray(this.images, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+      // move between lists
+      //this.images.push(event);
+      console.log(event)
+      //var cardInnerHtml = event.item.element.nativeElement.innerHTML;
+      //this.images.push(cardInnerHtml);
     }
-  }
+}
+
   /*
   ngOnInit() {
     this.createScene();

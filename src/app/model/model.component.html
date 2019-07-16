@@ -3,8 +3,8 @@
     <div id="rendererContainer"></div>   
 </div>
 -->
-<div cdkDropList id="list-1" cdkDropListConnectedTo="list-2" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" style="background-color: hotpink; width: 800px; height: 800px;">
+<div cdkDropList id="list-2" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" style="background-color: hotpink; width: 800px; height: 800px;">
     <div *ngFor="let image of images" cdkDrag>
-        <img mat-card-image src="{{image}}" >
+        {{image}}
     </div>
 </div>
