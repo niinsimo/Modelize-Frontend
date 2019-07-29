@@ -18,18 +18,27 @@ export class ModelComponent {
   rendererContainer: HTMLElement;
   onWindowResize: any;
 
-  images = [];
+  models = [
+   {"id" : "1", "url" : "../assets/adam/adamHead.gltf"},
+   {"id" : "2", "url" : "../assets/adam/adamHead.gltf"},
+   {"id" : "3", "url" : "../assets/adam/adamHead.gltf"},
+   {"id" : "4", "url" : "../assets/adam/adamHead.gltf"}
+  ];
 
-  drop(event: CdkDragDrop<string[]>) {
+  viewer = [];
+
+  drop(event: CdkDragDrop<string[]>, imageUrl: String) {
     if (event.container.id === event.previousContainer.id) {
       // move inside same list
-      moveItemInArray(this.images, event.previousIndex, event.currentIndex);
+      moveItemInArray(this.models, event.previousIndex, event.currentIndex);
     } else {
       // move between lists
       //this.images.push(event);
-      console.log(event)
+      console.log(event);
+      let modelId = event.item.element.nativeElement.id
+      console.log(modelId);
       //var cardInnerHtml = event.item.element.nativeElement.innerHTML;
-      //this.images.push(cardInnerHtml);
+      this.viewer.push(this.models[modelId]);
     }
 }
 

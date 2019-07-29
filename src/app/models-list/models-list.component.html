@@ -1,8 +1,8 @@
 
 <div class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start"> 
-  <div *ngFor="let image of images"> 
-    <div cdkDropList id="list1" cdkDropListConnectedTo="list-2" (cdkDropListDropped)="drop(this.image)">
-      <div cdkDrag>
+  <div *ngFor="let image of images" id="list-1"> 
+    <div cdkDropList cdkDropListConnectedTo="viewer-container" (cdkDropListDropped)="drop(event, image)">
+      <div cdkDrag id="{{image.id}}">
       <mat-card class="cardListItem">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -10,7 +10,7 @@
           <mat-card-subtitle>Keemia</mat-card-subtitle>
         </mat-card-header>
         <ng-container >
-          <img mat-card-image src="{{image}}" >
+          <img mat-card-image src="{{image.url}}">
         </ng-container>
 
         <mat-card-content>

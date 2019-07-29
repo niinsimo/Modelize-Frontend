@@ -3,8 +3,8 @@
     <div id="rendererContainer"></div>   
 </div>
 -->
-<div cdkDropList id="list-2" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" style="background-color: hotpink; width: 800px; height: 800px;">
-    <div *ngFor="let image of images" cdkDrag>
-        {{image}}
+<div cdkDropList id="viewer-container" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" style="background-color: hotpink; width: 800px; height: 800px;">
+    <div *ngFor="let model of viewer" cdkDrag>
+        {{model.url}}
     </div>
 </div>
