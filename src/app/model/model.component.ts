@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import * as THREE from 'three';
 import GLTFLoader from 'three-gltf-loader';
 import OrbitControls from 'three-orbitcontrols';
 import Stats from 'stats-js';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-model',
@@ -17,38 +17,34 @@ export class ModelComponent {
   domElement: HTMLElement;
   rendererContainer: HTMLElement;
   onWindowResize: any;
-
+  viewer = [];
   models = [
    {"id" : "1", "url" : "../assets/adam/adamHead.gltf"},
-   {"id" : "2", "url" : "../assets/adam/adamHead.gltf"},
+   {"id" : "2", "url" : "../assets/iphone/iphone.gltf"},
    {"id" : "3", "url" : "../assets/adam/adamHead.gltf"},
-   {"id" : "4", "url" : "../assets/adam/adamHead.gltf"}
+   {"id" : "4", "url" : "../assets/iphone/iphone.gltf"},
+   {"id" : "5", "url" : "../assets/adam/adamHead.gltf"},
+   {"id" : "6", "url" : "../assets/iphone/iphone.gltf"},
   ];
 
-  viewer = [];
-
-  drop(event: CdkDragDrop<string[]>, imageUrl: String) {
+  drop(event: CdkDragDrop<string[]>) {
     if (event.container.id === event.previousContainer.id) {
       // move inside same list
       moveItemInArray(this.models, event.previousIndex, event.currentIndex);
     } else {
       // move between lists
-      //this.images.push(event);
-      console.log(event);
       let modelId = event.item.element.nativeElement.id
+      console.log(event);
       console.log(modelId);
-      //var cardInnerHtml = event.item.element.nativeElement.innerHTML;
+
       this.viewer.push(this.models[modelId]);
+      this.createScene(this.models[modelId].url);
     }
 }
 
-  /*
-  ngOnInit() {
-    this.createScene();
-  }
+  
 
-  createScene() {
-
+  createScene(path: string) {
     const scene = new THREE.Scene();
     var containerWIdth = document.getElementById('rendererGrid').offsetWidth;
     const camera = new THREE.PerspectiveCamera( 25, containerWIdth / window.innerHeight, 1, 20000 );
@@ -113,7 +109,7 @@ export class ModelComponent {
 
     const loader = new GLTFLoader();
     loader.load(
-      '../assets/adam/adamHead.gltf', // Resource location (assets folder)
+      path, // Resource location (assets folder)
       function ( gltf ) {
         console.log(gltf);
 
@@ -151,6 +147,6 @@ export class ModelComponent {
       this.rendererContainer.removeChild(this.domElement);
     }
   }
-  */
+  
 
 }
