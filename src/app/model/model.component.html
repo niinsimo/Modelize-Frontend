@@ -3,7 +3,7 @@
     <div id="rendererContainer"></div>   
 </div>
 -->
-<div cdkDropList id="viewer-container" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" style="background-color: rgb(168, 168, 168); width: 800px; height: 800px;">
+<div cdkDropList id="viewer-container" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" class="model-placeholder">
     <div id="rendererGrid" (resized)="onWindowResize()">
         <div id="rendererContainer"></div>   
     </div>
