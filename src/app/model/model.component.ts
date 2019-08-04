@@ -17,7 +17,9 @@ export class ModelComponent {
   domElement: HTMLElement;
   rendererContainer: HTMLElement;
   onWindowResize: any;
+    
   viewer = [];
+  scene_created = false;
   models = [
    {"id" : "1", "url" : "../assets/adam/adamHead.gltf"},
    {"id" : "2", "url" : "../assets/iphone/iphone.gltf"},
@@ -26,6 +28,7 @@ export class ModelComponent {
    {"id" : "5", "url" : "../assets/adam/adamHead.gltf"},
    {"id" : "6", "url" : "../assets/iphone/iphone.gltf"},
   ];
+
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.container.id === event.previousContainer.id) {
@@ -50,6 +53,7 @@ export class ModelComponent {
     const camera = new THREE.PerspectiveCamera( 25, containerWIdth / window.innerHeight, 1, 20000 );
     camera.position.set( 1, 1, 20 );
     camera.lookAt( scene.position );
+    this.scene_created = true;
 
     const renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setClearColor( 0xC5C5C3 );
@@ -92,10 +96,9 @@ export class ModelComponent {
     
     }
 
-    window.addEventListener( 'resize', this.onWindowResize, false );
+    //window.addEventListener( 'resize', this.onWindowResize, false );
 
     this.onWindowResize = function h() {
-        console.log("nüüd");
         containerWIdth = document.getElementById('rendererGrid').offsetWidth;
         camera.aspect = containerWIdth / window.innerHeight;
         // adjust the FOV
@@ -125,13 +128,10 @@ export class ModelComponent {
 
       // Called while loading is progressing
       function ( xhr ) {
-
         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
       },
       // Called when loading has errors
       function ( error ) {
-
         scene.dispose();
         document.body.removeChild(renderer.domElement);
 
@@ -143,10 +143,12 @@ export class ModelComponent {
   }
 
   ngOnDestroy() {
-    if (this.rendererContainer.contains(this.domElement)) {
-      this.rendererContainer.removeChild(this.domElement);
+    if(this.scene_created) {
+      if (this.rendererContainer.contains(this.domElement)) {
+          this.rendererContainer.removeChild(this.domElement);
+      }
     }
+   
   }
   
-
 }
