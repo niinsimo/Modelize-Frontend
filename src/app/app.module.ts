@@ -27,11 +27,12 @@ import { AngularSplitModule } from 'angular-split';
 import { AngularResizedEventModule } from 'angular-resize-event';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatCardModule } from '@angular/material';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
+import { MatButtonModule }  from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
-import {MatGridListModule} from '@angular/material'
+import { MatGridListModule } from '@angular/material';
+import { MoleculesModelComponent } from './molecules-model/molecules-model.component'
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatGridListModule} from '@angular/material'
     ProfileComponent,
     ModelsListComponent,
     SplitViewerComponent,
-    HomeComponent
+    HomeComponent,
+    MoleculesModelComponent
   ],
   imports: [
     BrowserModule,
@@ -57,8 +59,11 @@ import {MatGridListModule} from '@angular/material'
     DragDropModule,
     MatCardModule ,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
     FlexLayoutModule,
-    MatGridListModule,
+    MatGridListModule
   ],
   providers: [AuthGuard, AuthService,
     {

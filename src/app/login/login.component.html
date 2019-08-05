@@ -1,14 +1,19 @@
-<div class="container">
-  <form class="form-signin" (ngSubmit)="login()" #loginForm="ngForm">
-    <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      {{message}}
-    </div>
-    <h2 class="form-signin-heading">Log in</h2>
-    <label for="username" class="sr-only">Username</label> <br />
-    <input type="text" class="form-control" placeholder="Username" id="username" [(ngModel)]="loginData.username" name="username" required/> <br /> <br />
-    <label for="password" class="sr-only">Password</label> <br />
-    <input type="password" class="form-control" placeholder="Password" id="password" [(ngModel)]="loginData.password" name="password" required/> <br />
-    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.form.valid">Sign in</button>
-  </form>
+<div class="form-container">
+  <mat-card>
+    <form class="form-signin" (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{message}}
+      </div>
+      <h2 class="form-signin-heading">Log in</h2>
+
+      <label for="username" class="sr-only">Username</label> <br />
+      <input type="text" class="form-control" placeholder="Username" id="username" [(ngModel)]="loginData.username" name="username" required/> <br /> <br />
+      <label for="password" class="sr-only">Password</label> <br />
+      <input type="password" class="form-control" placeholder="Password" id="password" [(ngModel)]="loginData.password" name="password" required/> <br />
+
+      <button mat-raised-button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.form.valid">Sign in</button>
+    </form>
+  </mat-card>
 </div>
+

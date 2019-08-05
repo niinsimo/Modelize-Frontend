@@ -9,6 +9,7 @@ import {AuthGuard} from "./guard/auth.guard";
 import { ModelsListComponent } from './models-list/models-list.component';
 import { SplitViewerComponent } from './split-viewer/split-viewer.component';
 import { HomeComponent } from './home/home.component';
+import { MoleculesModelComponent } from './molecules-model/molecules-model.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'split-viewer', component: SplitViewerComponent },
+  { path: 'molecules-model', component: MoleculesModelComponent},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
