@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as THREE from 'three';
 import { CSS3DRenderer, CSS3DObject, CSS3DSprite } from 'three-css3drenderer';
 import { TrackballControls } from '../../../node_modules/jsm/controls/TrackballControls';
@@ -8,7 +8,8 @@ import { PDBLoader } from '../../../node_modules/jsm/loaders/PDBLoader';
 @Component({
   selector: 'app-molecules-model',
   templateUrl: './molecules-model.component.html',
-  styleUrls: ['./molecules-model.component.scss']
+  styleUrls: ['./molecules-model.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class MoleculesModelComponent implements OnInit{
@@ -269,7 +270,7 @@ export class MoleculesModelComponent implements OnInit{
           var bond = document.createElement( 'div' );
           bond.className = "bond";
           bond.style.height = bondLength + "px";
-          var joint = new THREE.Object3D( bond );
+          var joint = new THREE.Object3D( );
           joint.position.copy( start );
           joint.position.lerp( end, 0.5 );
           joint.matrix.copy( objMatrix );

@@ -21,14 +21,13 @@ export class ModelComponent {
   viewer = [];
   scene_created = false;
   models = [
-   {"id" : "1", "url" : "../assets/adam/adamHead.gltf"},
-   {"id" : "2", "url" : "../assets/iphone/iphone.gltf"},
-   {"id" : "3", "url" : "../assets/adam/adamHead.gltf"},
-   {"id" : "4", "url" : "../assets/iphone/iphone.gltf"},
-   {"id" : "5", "url" : "../assets/adam/adamHead.gltf"},
-   {"id" : "6", "url" : "../assets/iphone/iphone.gltf"},
+   {"id" : "1", "url" : "../assets/adam/adamHead.gltf", "src" : "<app-molecules-model></app-molecules-model>"},
+   {"id" : "2", "url" : "../assets/iphone/iphone.gltf", "src" : "<app-molecules-model></app-molecules-model>"},
+   {"id" : "3", "url" : "../assets/adam/adamHead.gltf", "src" : "local-gltf"},
+   {"id" : "4", "url" : "../assets/iphone/iphone.gltf", "src" : "local-gltf"},
+   {"id" : "5", "url" : "../assets/adam/adamHead.gltf", "src" : "local-gltf"},
+   {"id" : "6", "url" : "../assets/iphone/iphone.gltf", "src" : "local-gltf"},
   ];
-
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.container.id === event.previousContainer.id) {
@@ -37,15 +36,23 @@ export class ModelComponent {
     } else {
       // move between lists
       let modelId = event.item.element.nativeElement.id
-      console.log(event);
       console.log(modelId);
 
       this.viewer.push(this.models[modelId]);
-      this.createScene(this.models[modelId].url);
+
+      if(this.models[modelId].src == "local-gltf") {
+        this.createScene(this.models[modelId].url);
+      }
+      else {
+        this.insertModule(this.models[modelId].src)
+      }
     }
 }
 
-  
+  insertModule(selector) {
+    this.rendererContainer = document.getElementById( 'rendererContainer' );
+    this.rendererContainer.innerHTML = selector;
+  }
 
   createScene(path: string) {
     const scene = new THREE.Scene();

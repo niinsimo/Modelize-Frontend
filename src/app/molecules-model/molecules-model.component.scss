@@ -1,12 +1,16 @@
-* {
+.molecule-container {
     background-color: #050505;
     background: radial-gradient(ellipse at center,  rgba(43,45,48,1) 0%,rgba(0,0,0,1) 100%);
+    margin: 0;
+	color: #fff;
+	font-size: 13px;
+	line-height: 24px;
 
     .topmenu {
         position: absolute;
         top: 50px;
         width: 100%;
-        padding: 20px;
+        padding: 10px;
         box-sizing: border-box;
         text-align: center;
     }
@@ -28,15 +32,16 @@
         margin: 2px;
         font-size: 14px;
         cursor: pointer;
+        text-transform: uppercase;
     }
 
     button:hover {
-        background-image: linear-gradient(to bottom right, #00b0cf, rgba(19, 245, 207, 0.692));
+        background-color: rgba(0,255,255,0.5);
     }
 
     button:active {
         color: #000000;
-        background-image: linear-gradient(to bottom right, #00b0cf, rgba(19, 245, 207, 0.692));
+        background-color: rgba(0,255,255,1);
     }
 
     .bond {
@@ -45,4 +50,41 @@
         background: #eee;
         display: block;
     }
+
+
+    a {
+        color: #ff0;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    canvas {
+        display: block;
+    }
+
+    #info {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        z-index: 1; /* TODO Solve this in HTML */
+    }
+
+    .dg.ac {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        z-index: 2 !important; /* TODO Solve this in HTML */
+    }
+
 }
