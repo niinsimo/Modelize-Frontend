@@ -21,10 +21,10 @@ export class ModelComponent {
   viewer = [];
   scene_created = false;
   models = [
-   {"id" : "1", "url" : "../assets/adam/adamHead.gltf", "src" : "<app-molecules-model></app-molecules-model>"},
-   {"id" : "2", "url" : "../assets/iphone/iphone.gltf", "src" : "<app-molecules-model></app-molecules-model>"},
-   {"id" : "3", "url" : "../assets/adam/adamHead.gltf", "src" : "local-gltf"},
-   {"id" : "4", "url" : "../assets/iphone/iphone.gltf", "src" : "local-gltf"},
+   {"id" : "1", "url" : "../assets/paradox/scene.gltf", "src" : "local-gltf"},
+   {"id" : "2", "url" : "../assets/jupiter/scene.gltf", "src" : "local-gltf"},
+   {"id" : "3", "url" : "../assets/pascoite/scene.gltf", "src" : "local-gltf"},
+   {"id" : "4", "url" : "../assets/magnetvali/scene.gltf", "src" : "local-gltf"},
    {"id" : "5", "url" : "../assets/adam/adamHead.gltf", "src" : "local-gltf"},
    {"id" : "6", "url" : "../assets/iphone/iphone.gltf", "src" : "local-gltf"},
   ];
@@ -35,9 +35,9 @@ export class ModelComponent {
       moveItemInArray(this.models, event.previousIndex, event.currentIndex);
     } else {
       // move between lists
-      let modelId = event.item.element.nativeElement.id
+      let modelId = parseInt(event.item.element.nativeElement.id)
+      modelId = modelId - 1
       console.log(modelId);
-
       this.viewer.push(this.models[modelId]);
 
       if(this.models[modelId].src == "local-gltf") {

@@ -9,10 +9,10 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 export class ModelsListComponent {
 
   images = [
-  {"id" : "1", "url" :"https://cdn.dribbble.com/users/673247/screenshots/2500770/atom.gif"}, 
-  {"id" : "2", "url" : "https://i.giphy.com/media/rVz1J8spLtUtO/giphy.webp"}, 
-  {"id" : "3", "url" : "https://media.giphy.com/media/PZ2XgGsn4n49q/giphy.gif"}, 
-  {"id" : "4", "url" : "https://media.giphy.com/media/OGdWZnVzRP1IY/giphy.gif"},
+  {"id" : "1", "url" :"../assets/paradox/screenshots/paradox.png"}, 
+  {"id" : "2", "url" : "../assets/jupiter/screenshots/jupiter.png"}, 
+  {"id" : "3", "url" : "../assets/pascoite/screenshots/pascoite.png"}, 
+  {"id" : "4", "url" : "../assets/magnetvali/screenshots/magnetvali.png"},
   {"id" : "5", "url" : "https://media.giphy.com/media/tqxqW5F4RtdWo/giphy.gif"},
   {"id" : "6", "url" : "https://media.giphy.com/media/87dO7wL8mTYzK/giphy.gif"},
   {"id" : "7", "url" : "https://media.giphy.com/media/11i03wSzIuNXiw/giphy.gif"}, 
