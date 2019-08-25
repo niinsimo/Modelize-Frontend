@@ -9,6 +9,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: 5px;
   }
 
   /* Column Gap */
@@ -54,5 +56,9 @@
       margin-right: unset;
       margin-bottom: 20px;
     }
+  }
+
+  .search-bar{
+      width: 100%;
   }
 

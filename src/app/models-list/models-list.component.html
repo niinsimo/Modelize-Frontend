@@ -1,20 +1,28 @@
 
-<div class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start"> 
+<div class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start">
+  <div class="search-bar">
+    <mat-form-field >
+        <input matInput placeholder="Search">
+    </mat-form-field>
+    <i class="material-icons" >search</i>
+  </div> 
+
+
   <div *ngFor="let image of images" id="list-1"> 
     <div cdkDropList cdkDropListConnectedTo="viewer-container" (cdkDropListDropped)="drop(event, image)">
       <div cdkDrag id="{{image.id}}">
       <mat-card class="cardListItem">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Molekul</mat-card-title>
-          <mat-card-subtitle>Keemia</mat-card-subtitle>
+          <mat-card-title>{{image.heading}}</mat-card-title>
+          <mat-card-subtitle>{{image.subject}}</mat-card-subtitle>
         </mat-card-header>
         <ng-container >
           <img mat-card-image src="{{image.url}}">
         </ng-container>
 
         <mat-card-content>
-          <p>Maecenas varius sit amet metus</p>
+          <p>{{image.description}}</p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>LIKE</button>

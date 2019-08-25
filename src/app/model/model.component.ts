@@ -41,6 +41,7 @@ export class ModelComponent {
       this.viewer.push(this.models[modelId]);
 
       if(this.models[modelId].src == "local-gltf") {
+        this.ngOnDestroy()
         this.createScene(this.models[modelId].url);
       }
       else {
