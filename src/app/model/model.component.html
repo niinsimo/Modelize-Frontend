@@ -1,10 +1,19 @@
 <!--
-<div id="rendererGrid" (resized)="onWindowResize()">
-    <div id="rendererContainer"></div>   
+
+<div class="fullscreen">
+    <div cdkDropList id="viewer-container" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" >
+        <div id="rendererGrid" (resized)="scene_created ? onWindowResize() : scene_created">
+            <div id="rendererContainer"></div>   
+        </div>
+    </div>
 </div>
 -->
-<div cdkDropList id="viewer-container" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" class="model-placeholder">
-    <div id="rendererGrid" (resized)="scene_created ? onWindowResize() : scene_created">
-        <div id="rendererContainer"></div>   
+
+<div class="">
+    <div cdkDropList id="viewer-container" class="model-renderer-container" cdkDropListConnectedTo="list-1" (cdkDropListDropped)="drop($event)" [cdkDropListData]="images" >
+        <div id="rendererGrid" (resized)="scene_created ? onWindowResize() : scene_created">
+            <div id="rendererContainer">
+            </div>   
+        </div>
     </div>
 </div>

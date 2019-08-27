@@ -6,3 +6,17 @@
     border: 3px solid rgb(211, 211, 211);
     border-style: dotted; 
 }
+
+.model-renderer-container {
+    width: 100% -10px;
+    height: 100vh;
+    background-color: #ffffff;
+
+    line-height: 1.3em;
+   border: 2px dashed #cccccc;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #ffffff, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #ffffff;
+   padding: 20px;
+   margin: 10px;
+}
