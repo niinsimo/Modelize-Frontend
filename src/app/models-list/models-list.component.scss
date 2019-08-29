@@ -65,3 +65,11 @@
   as-split-gutter { 
     height: initial !important; 
   }
+
+  .form-control {
+    height: 20px;
+    min-width: 150px;
+    max-width: 300px;
+    width: 40%;
+    border-radius: 5%;
+  }

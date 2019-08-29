@@ -27,12 +27,13 @@ import { AngularSplitModule } from 'angular-split';
 import { AngularResizedEventModule } from 'angular-resize-event';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatCardModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatMenu, MatMenuModule } from '@angular/material';
 import { MatButtonModule }  from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material';
 import { MoleculesModelComponent } from './molecules-model/molecules-model.component'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,9 @@ import { MoleculesModelComponent } from './molecules-model/molecules-model.compo
     MatInputModule,
     MatRippleModule,
     FlexLayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule,
+    Ng2SearchPipeModule
   ],
   providers: [AuthGuard, AuthService,
     {

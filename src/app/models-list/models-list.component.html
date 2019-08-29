@@ -1,14 +1,13 @@
 
 <div class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start">
   <div class="search-bar">
-    <mat-form-field >
-        <input matInput placeholder="Search">
-    </mat-form-field>
-    <i class="material-icons" >search</i>
-  </div> 
+    <div class="search-model">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+    </div>
+  </div>
 
 
-  <div *ngFor="let image of images" id="list-1"> 
+  <div *ngFor="let image of images | filter:searchText" id="list-1"> 
     <div cdkDropList cdkDropListConnectedTo="viewer-container" (cdkDropListDropped)="drop(event, image)">
       <div cdkDrag id="{{image.id}}">
       <mat-card class="cardListItem">
@@ -26,7 +25,11 @@
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>LIKE</button>
-          <button mat-button>ADD TO CLASS</button>
+          <button mat-button [matMenuTriggerFor]="afterMenu">ADD TO CLASS</button>
+          <mat-menu #afterMenu="matMenu" xPosition="after">
+            <button mat-menu-item>Bioloogia</button>
+            <button mat-menu-item>Füüsika</button>
+          </mat-menu>
         </mat-card-actions>
       </mat-card>
      </div>

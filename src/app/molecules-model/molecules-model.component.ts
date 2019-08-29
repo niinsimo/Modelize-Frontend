@@ -51,7 +51,7 @@ export class MoleculesModelComponent implements OnInit{
     var menu = document.getElementById( "menu" );
 
     init();
-    animate();
+    //animate();
     
     //
 
@@ -77,6 +77,8 @@ export class MoleculesModelComponent implements OnInit{
       baseSprite.src = '../../assets/molecules/textures/sprites/ball.png';
       //
       window.addEventListener( 'resize', onWindowResize, false );
+
+      animate();
     }
 
     //
@@ -318,11 +320,11 @@ export class MoleculesModelComponent implements OnInit{
     
 		function animate() {
 				requestAnimationFrame( animate );
-				controls.update();
+        controls.update();
 				var time = Date.now() * 0.0004;
 				root.rotation.x = time;
 				root.rotation.y = time * 0.7;
-				render();
+        render();
     }
     
     //
