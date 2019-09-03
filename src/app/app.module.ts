@@ -27,7 +27,7 @@ import { AngularSplitModule } from 'angular-split';
 import { AngularResizedEventModule } from 'angular-resize-event';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatCardModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatMenu, MatMenuModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatMenuModule, MatSnackBar, MatSnackBarModule } from '@angular/material';
 import { MatButtonModule }  from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
@@ -66,7 +66,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FlexLayoutModule,
     MatGridListModule,
     MatMenuModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuard, AuthService,
     {

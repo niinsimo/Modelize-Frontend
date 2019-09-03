@@ -67,9 +67,36 @@
   }
 
   .form-control {
+    /*
     height: 20px;
     min-width: 150px;
     max-width: 300px;
     width: 40%;
     border-radius: 5%;
+    */
+    border: none;
+    letter-spacing: .5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    transition: border-color .3s ease;
+    font-family: scandia-web,sans-serif;
+    font-weight: 400;
+    color: #090910;
+    -webkit-font-smoothing: antialiased;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+  }
+
+  .search-model {
+    border-bottom: 1px solid #d7d7dc;
+    box-sizing: border-box;
+    box-shadow: none;
+    background: none;
+    padding: .3125em 0;
+    margin-bottom: .5em;
+    min-width: 150px;
+    max-width: 300px;
+    width: 40%;
   }

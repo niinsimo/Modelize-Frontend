@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-models-list',
   templateUrl: './models-list.component.html',
   styleUrls: ['./models-list.component.scss']
 })
-export class ModelsListComponent {
+export class ModelsListComponent{
+
+  constructor(private _snackBar: MatSnackBar) {}
 
   images = [
   {"id" : "1", "url" :"../assets/paradox/screenshots/paradox.png", "subject": "Matemaatika", "heading": "Paradoks", "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco."}, 
@@ -21,6 +24,10 @@ export class ModelsListComponent {
   {"id" : "9", "url" : "https://media3.giphy.com/media/ZFiNY3IDiP9UA/giphy.gif?cid=790b76115d10f900746e7579551a5478&rid=giphy.gif", "subject": "Füüsika", "heading": "Vereringe", "description": "Nunc aliquet bibendum enim facilisis gravida neque convallis a cras."}
 ];
 
+  classes = [
+    "Bioloogia 7", "Füüsika 8"
+  ];
+
   drop(event: CdkDragDrop<string[]>, imageUrl: String) {
     if (event.container.id === event.previousContainer.id) {
       // move inside same list
@@ -29,6 +36,12 @@ export class ModelsListComponent {
       // move between lists
       console.log(imageUrl);
     }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+  });
   }
 
 }

@@ -2,6 +2,7 @@
 <div class="cardList" fxLayout="row wrap"  fxLayoutAlign="flex-start">
   <div class="search-bar">
     <div class="search-model">
+        <i class="material-icons" style="color: rgb(43, 43, 43); "> search </i>
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
     </div>
   </div>
@@ -27,8 +28,9 @@
           <button mat-button>LIKE</button>
           <button mat-button [matMenuTriggerFor]="afterMenu">ADD TO CLASS</button>
           <mat-menu #afterMenu="matMenu" xPosition="after">
-            <button mat-menu-item>Bioloogia</button>
-            <button mat-menu-item>Füüsika</button>
+            <div  *ngFor="let class of classes" >
+              <button mat-menu-item (click)="openSnackBar(image.heading + ' on lisatud klassi ' + class, 'OK')">{{class}}</button>
+            </div>
           </mat-menu>
         </mat-card-actions>
       </mat-card>
